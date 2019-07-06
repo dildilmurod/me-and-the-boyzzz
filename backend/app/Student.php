@@ -52,6 +52,10 @@ class Student extends Authenticatable
         return $this->hasMany('App\Models\Task');
     }
 
+    public function comments(){
+        return $this->belongsToMany('App\Models\Comment', 'comment_student', 'student_id', 'comment_id' );
+    }
+
 
 
 

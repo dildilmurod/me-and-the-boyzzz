@@ -21,7 +21,8 @@ class Comment extends Model
 
     public $fillable = [
         'comment',
-        'student_id'
+        'student_id',
+        'task_id'
     ];
 
     /**
@@ -49,6 +50,13 @@ class Comment extends Model
         return $this->belongsTo('App\Models\Task');
     }
 
+//    public function students(){
+//        return $this->belongsToMany('App\Student', 'comment_student', 'student_id', 'comment_id');
+//    }
+
+    public function student(){
+        return $this->belongsTo('App\Models\Student');
+    }
 
 
 

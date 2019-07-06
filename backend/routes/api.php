@@ -28,9 +28,15 @@ Route::post('/staff-login', 'StaffAuthController@login');
 
 Route::apiResource('task', 'TaskAPIController');
 Route::post('task/{task}', 'TaskAPIController@update');
+Route::get('my-tasks', 'TaskAPIController@my_tasks');
 
 Route::apiResource('solution', 'SolutionAPIController');
 Route::post('solution/{solution}', 'SolutionAPIController@update');
+
+
+
+Route::apiResource('comment', 'CommentAPIController');
+Route::post('comment/{comment}', 'CommentAPIController@update');
 
 
 
