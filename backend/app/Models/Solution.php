@@ -27,7 +27,8 @@ class Solution extends Model
         'filesize',
         'description',
         'task_id',
-        'student_id'
+        'student_id',
+        'status'
     ];
 
     /**

@@ -15,7 +15,6 @@ use Response;
  * Class SolutionController
  * @package App\Http\Controllers\API
  */
-
 class SolutionAPIController extends AppBaseController
 {
     /** @var  SolutionRepository */
@@ -45,11 +44,11 @@ class SolutionAPIController extends AppBaseController
         return $this->sendResponse($solutions->toArray(), 'Solutions retrieved successfully');
     }
 
-    public function my_solutions(){
+    public function my_solutions()
+    {
         $tasks = Solution::where([
             ['student_id', auth('api')->user()->id],
         ])->orderBy('id', 'desc')->get();
-
 
 
         return $this->sendResponse($tasks->toArray(), 'Tasks retrieved successfully');
@@ -57,15 +56,32 @@ class SolutionAPIController extends AppBaseController
     }
 
 
+    public function change_status($id)
+    {
+        $task = Solution::where([
+            ['student_id', auth('api')->user()->id],
+            ['id', $id]
+        ])->first();
 
-    public function gen_name($file){
+        $task->status == 0 ? $task->status = 1 : $task->status = 0;
+
+        $task->save();
+
+
+        return $this->sendResponse($task->toArray(), 'Task status changed successfully');
+
+    }
+
+
+    public function gen_name($file)
+    {
         //creates unique file name
         $fileName = $file->getClientOriginalName();
         $fileName = pathinfo($fileName, PATHINFO_FILENAME);
         //just takes file extension
         $ext = $file->getClientOriginalExtension();
         //filename to store
-        $fileToStore = md5(uniqid($fileName))  . '.' . $ext;
+        $fileToStore = md5(uniqid($fileName)) . '.' . $ext;
 
         return $fileToStore;
     }
@@ -81,7 +97,6 @@ class SolutionAPIController extends AppBaseController
     public function store(CreateSolutionAPIRequest $request)
     {
         $input = $request->except(['file', 'filesize', 'student_id']);
-
 
 
         $file = $request->file('file');
@@ -118,9 +133,21 @@ class SolutionAPIController extends AppBaseController
             return $this->sendError('Solution not found');
         }
 
-        $solution->student;
+        if ($solution->student_id == auth('api')->user()->id) {
+            $solution->student;
 
-        return $this->sendResponse($solution->toArray(), 'Solution retrieved successfully');
+            return $this->sendResponse($solution->toArray(), 'Solution retrieved successfully');
+
+        } else if ($solution->status == 1 && $solution->task()->student_id == auth('api')->user()->id) {
+            $solution->student;
+
+            return $this->sendResponse($solution->toArray(), 'Solution retrieved successfully');
+
+        }
+
+        return $this->sendError('Solution is not open for you');
+
+
     }
 
     /**
@@ -183,17 +210,10 @@ class SolutionAPIController extends AppBaseController
         $solution->delete();
 
         if ($solution->file) {
-            File::delete('files/'.$solution->file);
+            File::delete('files/' . $solution->file);
         }
         return $this->sendResponse($id, 'Solution deleted successfully');
     }
-
-
-
-
-
-
-
 
 
 }

@@ -32,7 +32,8 @@ Route::get('my-tasks', 'TaskAPIController@my_tasks');
 
 Route::apiResource('solution', 'SolutionAPIController');
 Route::post('solution/{solution}', 'SolutionAPIController@update');
-
+Route::get('my-solutions', 'SolutionAPIController@my_solutions');
+Route::get('change-status/{solution}', 'SolutionAPIController@change_status');
 
 
 Route::apiResource('comment', 'CommentAPIController');
