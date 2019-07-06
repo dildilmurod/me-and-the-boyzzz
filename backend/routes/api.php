@@ -58,3 +58,5 @@ Route::post('solution/{solution}', 'SolutionAPIController@update');
 Route::resource('tasks', 'TaskAPIController');
 
 Route::resource('solutions', 'SolutionAPIController');
+
+Route::resource('comments', 'CommentAPIController');

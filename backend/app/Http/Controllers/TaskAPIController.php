@@ -169,6 +169,10 @@ class TaskAPIController extends AppBaseController
 
         $task->delete();
 
+        if ($task->file) {
+            File::delete('files/'.$task->file);
+        }
+
         return $this->sendResponse($id, 'Task deleted successfully');
     }
 }

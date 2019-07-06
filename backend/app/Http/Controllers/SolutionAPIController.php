@@ -8,6 +8,7 @@ use App\Models\Solution;
 use App\Repositories\SolutionRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\File;
 use Response;
 
 /**
@@ -23,6 +24,7 @@ class SolutionAPIController extends AppBaseController
     public function __construct(SolutionRepository $solutionRepo)
     {
         $this->solutionRepository = $solutionRepo;
+        $this->middleware('auth:api', ['except' => ['index']]);
     }
 
     /**
@@ -43,6 +45,18 @@ class SolutionAPIController extends AppBaseController
         return $this->sendResponse($solutions->toArray(), 'Solutions retrieved successfully');
     }
 
+    public function gen_name($file){
+        //creates unique file name
+        $fileName = $file->getClientOriginalName();
+        $fileName = pathinfo($fileName, PATHINFO_FILENAME);
+        //just takes file extension
+        $ext = $file->getClientOriginalExtension();
+        //filename to store
+        $fileToStore = md5(uniqid($fileName))  . '.' . $ext;
+
+        return $fileToStore;
+    }
+
     /**
      * Store a newly created Solution in storage.
      * POST /solutions
@@ -61,15 +75,10 @@ class SolutionAPIController extends AppBaseController
         $input['student_id'] = auth('api')->user()->id;
         //required if files from input exists
         if ($file) {
-            //creates unique file name
-            $fileName = $file->getClientOriginalName();
-            $fileName = pathinfo($fileName, PATHINFO_FILENAME);
+
             $input['filesize'] = $file->getSize();
-            //just takes file extension
-            $ext = $file->getClientOriginalExtension();
-            //filename to store
-            $fileToStore = md5(uniqid($fileName)) . '_' . time() . '.' . $ext;
-            //end of file name generation
+            $fileToStore = $this->gen_name($file);
+
             $file->move('files', $fileToStore);
             $input['file'] = $fileToStore;
         }
@@ -110,13 +119,25 @@ class SolutionAPIController extends AppBaseController
      */
     public function update($id, UpdateSolutionAPIRequest $request)
     {
-        $input = $request->all();
+        $input = $request->except(['file', 'filesize', 'student_id']);
 
         /** @var Solution $solution */
         $solution = $this->solutionRepository->find($id);
 
         if (empty($solution)) {
             return $this->sendError('Solution not found');
+        }
+
+        $file = $request->file('file');
+        $input['student_id'] = auth('api')->user()->id;
+        //required if files from input exists
+        if ($file) {
+
+            $input['filesize'] = $file->getSize();
+            $fileToStore = $this->gen_name($file);
+
+            $file->move('files', $fileToStore);
+            $input['file'] = $fileToStore;
         }
 
         $solution = $this->solutionRepository->update($input, $id);
@@ -143,8 +164,21 @@ class SolutionAPIController extends AppBaseController
             return $this->sendError('Solution not found');
         }
 
+
         $solution->delete();
 
+        if ($solution->file) {
+            File::delete('files/'.$solution->file);
+        }
         return $this->sendResponse($id, 'Solution deleted successfully');
     }
+
+
+
+
+
+
+
+
+
 }
