@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ceb42c17-c98a-4a60-a73a-824d5122e3ad" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/SolutionAPIController.php" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/SolutionAPIController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/app/Models/Solution.php" afterPath="$PROJECT_DIR$/backend/app/Models/Solution.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/bootstrap/app.php" afterPath="$PROJECT_DIR$/backend/bootstrap/app.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/TaskAPIController.php" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/TaskAPIController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/routes/api.php" afterPath="$PROJECT_DIR$/backend/routes/api.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,27 +15,27 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="TaskAPIController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TaskAPIController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TaskAPIController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3406">
-              <caret line="50" column="12" lean-forward="true" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="25" />
+            <state relative-caret-position="514">
+              <caret line="118" column="54" lean-forward="false" selection-start-line="118" selection-start-column="54" selection-end-line="118" selection-end-column="54" />
               <folding>
                 <element signature="e#40#87#0#PHP" expanded="true" />
-                <marker date="1562433953029" expanded="true" signature="1135:1383" ph="..." />
-                <marker date="1562433953029" expanded="true" signature="1165:1255" ph="..." />
-                <marker date="1562433953029" expanded="true" signature="1166:1254" ph="..." />
-                <marker date="1562433953029" expanded="true" signature="1266:1278" ph="..." />
+                <marker date="1562439172762" expanded="true" signature="1135:1383" ph="..." />
+                <marker date="1562439172762" expanded="true" signature="1165:1255" ph="..." />
+                <marker date="1562439172762" expanded="true" signature="1166:1254" ph="..." />
+                <marker date="1562439172762" expanded="true" signature="1266:1278" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SolutionAPIController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SolutionAPIController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/SolutionAPIController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="147" column="61" lean-forward="false" selection-start-line="147" selection-start-column="61" selection-end-line="147" selection-end-column="61" />
+            <state relative-caret-position="160">
+              <caret line="127" column="5" lean-forward="true" selection-start-line="127" selection-start-column="5" selection-end-line="127" selection-end-column="5" />
               <folding>
                 <element signature="e#40#91#0#PHP" expanded="true" />
               </folding>
@@ -68,8 +66,8 @@
       <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="35" column="69" lean-forward="false" selection-start-line="35" selection-start-column="69" selection-end-line="35" selection-end-column="69" />
+            <state relative-caret-position="400">
+              <caret line="31" column="64" lean-forward="false" selection-start-line="31" selection-start-column="64" selection-end-line="31" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -78,8 +76,8 @@
       <file leaf-file-name="Task.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/app/Models/Task.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+            <state relative-caret-position="266">
+              <caret line="30" column="25" lean-forward="false" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -148,11 +146,11 @@
         <option value="$PROJECT_DIR$/backend/app/Student.php" />
         <option value="$PROJECT_DIR$/backend/database/migrations/2019_07_06_212947_create_comment_student_table.php" />
         <option value="$PROJECT_DIR$/backend/app/Models/Comment.php" />
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/TaskAPIController.php" />
         <option value="$PROJECT_DIR$/backend/bootstrap/app.php" />
-        <option value="$PROJECT_DIR$/backend/routes/api.php" />
         <option value="$PROJECT_DIR$/backend/app/Models/Solution.php" />
         <option value="$PROJECT_DIR$/backend/app/Http/Controllers/SolutionAPIController.php" />
+        <option value="$PROJECT_DIR$/backend/routes/api.php" />
+        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/TaskAPIController.php" />
       </list>
     </option>
   </component>
@@ -385,15 +383,15 @@
       <workItem from="1561804859987" duration="222000" />
       <workItem from="1562131495782" duration="4452000" />
       <workItem from="1562411597679" duration="9362000" />
-      <workItem from="1562432140170" duration="4877000" />
+      <workItem from="1562432140170" duration="6695000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25086000" />
+    <option name="totallyTimeSpent" value="26904000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-13" y="-13" width="2762" height="1770" extended-state="6" />
+    <frame x="-13" y="-13" width="2762" height="1770" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26593325" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -562,14 +560,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Models/Task.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../mylib/bootstrap/app.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -594,14 +584,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="35" column="69" lean-forward="false" selection-start-line="35" selection-start-column="69" selection-end-line="35" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/app/Models/Solution.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="466">
@@ -610,26 +592,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TaskAPIController.php">
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/SolutionAPIController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3406">
-          <caret line="50" column="12" lean-forward="true" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="25" />
+        <state relative-caret-position="160">
+          <caret line="127" column="5" lean-forward="true" selection-start-line="127" selection-start-column="5" selection-end-line="127" selection-end-column="5" />
           <folding>
-            <element signature="e#40#87#0#PHP" expanded="true" />
-            <marker date="1562433953029" expanded="true" signature="1135:1383" ph="..." />
-            <marker date="1562433953029" expanded="true" signature="1165:1255" ph="..." />
-            <marker date="1562433953029" expanded="true" signature="1166:1254" ph="..." />
-            <marker date="1562433953029" expanded="true" signature="1266:1278" ph="..." />
+            <element signature="e#40#91#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/SolutionAPIController.php">
+    <entry file="file://$PROJECT_DIR$/backend/app/Models/Task.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="147" column="61" lean-forward="false" selection-start-line="147" selection-start-column="61" selection-end-line="147" selection-end-column="61" />
+        <state relative-caret-position="266">
+          <caret line="30" column="25" lean-forward="false" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="31" column="64" lean-forward="false" selection-start-line="31" selection-start-column="64" selection-end-line="31" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TaskAPIController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="118" column="54" lean-forward="false" selection-start-line="118" selection-start-column="54" selection-end-line="118" selection-end-column="54" />
           <folding>
-            <element signature="e#40#91#0#PHP" expanded="true" />
+            <element signature="e#40#87#0#PHP" expanded="true" />
+            <marker date="1562439172762" expanded="true" signature="1135:1383" ph="..." />
+            <marker date="1562439172762" expanded="true" signature="1165:1255" ph="..." />
+            <marker date="1562439172762" expanded="true" signature="1166:1254" ph="..." />
+            <marker date="1562439172762" expanded="true" signature="1266:1278" ph="..." />
           </folding>
         </state>
       </provider>

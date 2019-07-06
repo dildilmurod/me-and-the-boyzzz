@@ -107,6 +107,19 @@ class TaskAPIController extends AppBaseController
      *
      * @return Response
      */
+
+    public function download_route($id){
+        $task = $this->taskRepository->find($id);
+
+        $task->student;
+        $task->solution;
+        $task->num_of_downloads+=1;
+        $task->save();
+//        files/08fa8bcf83ba94fba14a7ef8f8282d25.jpg
+        return $this->sendResponse('files/'.$task->file, 'Task file route retrieved successfully');
+
+    }
+
     public function show($id)
     {
         /** @var Task $task */
