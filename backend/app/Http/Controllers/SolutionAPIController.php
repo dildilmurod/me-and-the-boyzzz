@@ -24,7 +24,7 @@ class SolutionAPIController extends AppBaseController
     public function __construct(SolutionRepository $solutionRepo)
     {
         $this->solutionRepository = $solutionRepo;
-        $this->middleware('auth:api', ['except' => ['index']]);
+        $this->middleware('auth:api', ['except' => ['']]);
     }
 
     /**
@@ -44,6 +44,19 @@ class SolutionAPIController extends AppBaseController
 
         return $this->sendResponse($solutions->toArray(), 'Solutions retrieved successfully');
     }
+
+    public function my_solutions(){
+        $tasks = Solution::where([
+            ['student_id', auth('api')->user()->id],
+        ])->orderBy('id', 'desc')->get();
+
+
+
+        return $this->sendResponse($tasks->toArray(), 'Tasks retrieved successfully');
+
+    }
+
+
 
     public function gen_name($file){
         //creates unique file name
@@ -104,6 +117,8 @@ class SolutionAPIController extends AppBaseController
         if (empty($solution)) {
             return $this->sendError('Solution not found');
         }
+
+        $solution->student;
 
         return $this->sendResponse($solution->toArray(), 'Solution retrieved successfully');
     }

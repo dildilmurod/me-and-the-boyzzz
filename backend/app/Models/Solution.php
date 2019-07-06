@@ -52,11 +52,16 @@ class Solution extends Model
     public static $rules = [
         'title' => 'required',
         'file' => 'required',
-        'description' => 'required'
+        'description' => 'required',
+        'task_id'=>'required'
     ];
 
     public function task(){
         return $this->belongsTo('App\Models\Task');
+    }
+
+    public function student(){
+        return $this->belongsTo('App\Student');
     }
 
     

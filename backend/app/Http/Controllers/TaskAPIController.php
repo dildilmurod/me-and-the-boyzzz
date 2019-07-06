@@ -45,17 +45,17 @@ class TaskAPIController extends AppBaseController
         return $this->sendResponse($tasks->toArray(), 'Tasks retrieved successfully');
     }
 
-//    public function my_tasks(){
-//        $tasks = Task::where([
-//            ['student_id', auth('api')->user()->id],
-//            ['status', 1]
-//        ])->orderBy('id', 'desc')->get();
-//
-//        return $tasks;
-//
-//        return $this->sendResponse($tasks->toArray(), 'Tasks retrieved successfully');
-//
-//    }
+    public function my_tasks(){
+        $tasks = Task::where([
+            ['student_id', auth('api')->user()->id],
+            ['status', 1]
+        ])->orderBy('id', 'desc')->get();
+
+
+
+        return $this->sendResponse($tasks->toArray(), 'Tasks retrieved successfully');
+
+    }
 
     /**
      * Store a newly created Task in storage.
@@ -77,14 +77,10 @@ class TaskAPIController extends AppBaseController
         return $fileToStore;
     }
 
-    public function
-
 
     public function store(CreateTaskAPIRequest $request)
     {
         $input = $request->except(['file', 'filesize', 'student_id']);
-
-
 
         $file = $request->file('file');
         $input['student_id'] = auth('api')->user()->id;
@@ -117,6 +113,7 @@ class TaskAPIController extends AppBaseController
         $task = $this->taskRepository->find($id);
 
         $task->student;
+        $task->solution;
 
         if (empty($task)) {
             return $this->sendError('Task not found');
