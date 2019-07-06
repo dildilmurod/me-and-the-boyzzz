@@ -44,5 +44,17 @@ class Comment extends Model
         'comment' => 'required'
     ];
 
+
+    public function task(){
+        return $this->belongsTo('App\Models\Task');
+    }
+
+
+
+
+
+
+
+
     
 }

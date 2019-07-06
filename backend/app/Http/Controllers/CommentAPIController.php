@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers;
 
 use App\Http\Requests\API\CreateCommentAPIRequest;
 use App\Http\Requests\API\UpdateCommentAPIRequest;
@@ -53,7 +53,9 @@ class CommentAPIController extends AppBaseController
      */
     public function store(CreateCommentAPIRequest $request)
     {
-        $input = $request->all();
+        $input = $request->except(['student_id']);
+
+        $input['student_id'] = auth('api')->user()->id;
 
         $comment = $this->commentRepository->create($input);
 

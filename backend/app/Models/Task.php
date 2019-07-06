@@ -67,5 +67,16 @@ class Task extends Model
         return $this->hasMany('App\Models\Solution');
     }
 
+    public function comment(){
+        return $this->hasMany('App\Models\Comment');
+    }
+
+
+
+
+
+
+
+
     
 }
