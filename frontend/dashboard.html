@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Mobile Specific Meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Favicon-->
+        <link rel="shortcut icon" href="img/fav.png">
+        <!-- Author Meta -->
+        <meta name="author" content="codepixer">
+        <!-- Meta Description -->
+        <meta name="description" content="">
+        <!-- Meta Keyword -->
+        <meta name="keywords" content="">
+        <!-- meta character set -->
+        <meta charset="UTF-8">
+        <!-- Site Title -->
+        <title>Data Platform</title>
+    
+        <!--
+                Google Font
+                ============================================= -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,500,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500i" rel="stylesheet">
+        
+        
+    
+        <!--
+                CSS
+                ============================================= -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css">
+        <link rel="stylesheet" href="css/linearicons.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/magnific-popup.css">
+        <link rel="stylesheet" href="css/nice-select.css">
+        <link rel="stylesheet" href="css/animate.min.css">
+        <link rel="stylesheet" href="css/owl.carousel.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="modal.css">
+        <script src="login-sign-up-form/js/index.js"></script>
+        
+
+        <style>
+        body {
+            background: linear-gradient(90deg, rgba(0,3,36,1) 0%, rgba(236,244,245,1) 0%, rgba(244,246,246,1) 100%);
+            padding-bottom: 70px; 
+        }
+        </style>
+    </head>
+<body>
+
+        <header id="header" style="background-image: url('img/banner-bg.png')">
+                <div class="container">
+                    <div class="row align-items-center justify-content-between d-flex">
+                        <div id="logo">
+                            <a href="index.html"><img src="img/logo.png" alt=""></a>
+                        </div>
+                        <nav id="nav-menu-container">
+                            <ul class="nav-menu">
+                                <li><a href="datacatalog.html" id="test">Дата-сеты</a></li>
+                                <li><a href="dashboard.html">Мои дата-сеты</a></li>
+                                <li><a href="solution.html">Мои решения</a></li>
+                                <span  style="color: white; font-weight: 200; margin-left: 10px;">Привет, </span>
+                                <span id="userLogin" style="color: white; font-weight: 400;"></span>       
+                                
+                                                  
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+
+            
+
+
+            <section class="home-banner-area relative" style="background-image: none;">
+                
+                    <div class="container">
+                        <div class="row fullscreen d-flex align-items-center justify-content-center">
+                            <div class="banner-content">
+                                <h1 class="wow fadeIn" data-wow-duration="4s" style="font-size: 30px; color: black">Мои дата-сеты</h1>
+
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="background-color: white; border-width: 1px; border-color: #76ABDD; border-radius: 5px; color:#76ABDD; margin-bottom: 20px; margin-top: -80px; ">
+                                       + Загрузить
+                                      </button>
+                                      
+                                      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h5 class="modal-title" id="exampleModalLabel">Загрузить датасет</h5>
+                                                                                          
+                                            </div>
+
+                                            <div class="row fullscreen d-flex align-items-center justify-content-center" style="font-family: Montserrat">
+                                            <div class="input-group input-group-sm mb-3 col-md-8" style="margin-top: 30px">
+                                                    <div class="input-group-prepend">
+                                                      <span id="displayName"class="input-group-text" id="inputGroup-sizing-sm">Название</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                                  </div>
+
+
+
+
+                                                  <div class="input-group input-group-sm mb-3 col-md-8">
+                                                    <div class="custom-file">
+                                                      <input id="getFile" type="file" class="custom-file-input" id="customFile">
+                                                      <label  class="custom-file-label" for="customFile">Выберите файл</label>
+                                                    </div>
+                                                </div>
+
+
+                                                  <div class="input-group input-group-sm mb-3 col-md-8">
+                                                        <div class="input-group-prepend">
+                                                          <span class="input-group-text" id="inputGroup-sizing-sm">Описание</span>
+                                                        </div>
+                                                        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                                      </div>
+
+
+                                                      <div class="input-group input-group-sm mb-3 col-md-8">
+                                                            <div class="input-group-prepend">
+                                                              <span class="input-group-text" id="inputGroup-sizing-sm">Цель</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                                          </div>
+                                                        </div>
+                                          
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" value="Upload" onclick="upload()">Загрузить</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+      
+     
+
+
+
+                                
+                                <div class="container">
+                                     <div class="row">
+                                            <div class="card" style="width: 18rem; box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
+                                                    
+                                                    <div class="card-body">
+                                                      <h5 class="card-title">Пример дата-сета</h5>
+                                                      <p class="card-text">Пример того, как будет выглядеть карточка с Вашим дата-сетом</p>
+                                                    </div>
+                                                    <ul class="list-group list-group-flush">
+                                                      <li class="list-group-item">312 скачиваний</li>
+                                                      <li class="list-group-item">data_test.csv</li>
+                                                      <li class="list-group-item">2019-07-07 10:28:25</li>
+                                                    </ul>
+                                                    <div class="card-body">
+                                                      <a href="#" class="card-link">Скачать</a>
+                                                      <a href="card_info.html" class="card-link">Подробнее</a>
+                                                    </div>
+                                                  </div>
+
+
+
+                                                  
+                                                      
+                                                  
+                                     </div>   
+                                
+                                </div>
+            
+                            
+                            </div>
+                        </div>
+                    </div>
+                    
+                </section>
+
+                <div class="navbar fixed-bottom" style="background-image: url('img/banner-bg.png')"></div>
+
+                <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+                
+
+                <script>
+                        // Add the following code if you want the name of the file appear on select
+                        $(".custom-file-input").on("change", function() {
+                          var fileName = $(this).val().split("\\").pop();
+                          $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+                        });
+                        </script>
+                        <script src="js/dashboard.js"></script>
+
+
+    
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Форма авторизации и регистрации | pcvector.net</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&amp;subset=cyrillic" rel="stylesheet">
+	<link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<script>var articleLink = '/scripts/forms/499-veb-forma-avtorizacii-i-registracii-na-sayte.html';</script>
+
+	<div class="cotn_principal" style="margin-top: 200px;">
+		<div class="cont_centrar">
+			<div class="cont_login">
+				<div class="cont_info_log_sign_up">
+					<div class="col_md_login">
+						<div class="cont_ba_opcitiy">
+							<h2>Войти</h2>
+							<p>У вас уже есть логин?</p>
+							<button class="btn_login" onclick="cambiar_login()">Войти</button>
+						</div>
+					</div>
+					<div class="col_md_sign_up">
+						<div class="cont_ba_opcitiy">
+							<h2>Регистрация</h2>
+							<p>Нет логина?</p>
+							<button class="btn_sign_up" onclick="cambiar_sign_up()">Зарегистрироваться</button>
+						</div>
+					</div>
+				</div>
+				<div class="cont_back_info">
+					<div class="cont_img_back_grey">
+						<img src="img/bg.jpg" alt="" />
+					</div>
+				</div>
+				<div class="cont_forms">
+					<div class="cont_img_back_">
+						<img src="img/bg.jpg" alt="" />
+					</div>
+					<div class="cont_form_login">
+						<a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
+						<h2 style="color: #03A9F4">Войти</h2>
+						<input id="loginss" type="text" placeholder="Логин" />
+						<input id="passwordss" type="password" placeholder="Пароль" />
+						<p id="valid" style="color:white;padding-top:10px;padding-bottom: 10px;opacity: 0;">Enter valid value</p>
+						<button class="btn_login" onclick="UserLogin()">Войти</button>
+					</div>
+					<div class="cont_form_sign_up">
+						<a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
+						<h2 style="color: #d32f2f;">Регистрация</h2>
+
+						<input id="user_name_surname" required type="text" placeholder="Имя и Фамилия" />
+						<input id="user_email_zhe" type="email" placeholder="E-mail" />
+						<input id="user_login" type="text" placeholder="Логин" />
+						<input id="user_password" type="password" placeholder="Пароль" />
+						<input id = "user_password_re" type="password" placeholder="Повторите пароль" />
+						<div class="control">
+							<label class="radio">
+								<input onclick="enable_radio('off')" checked type="radio" name="answer" style="margin-right: 20px; color: #d32f2f">
+								Физическое лицо
+							</label>
+							<label class="radio">
+								<input id="user_face" onclick="enable_radio('on')" type="radio" name="answer">
+								Юридическое лицо	
+							</label>
+						</div>
+						<input id = 'turnon0' class='turnon0' type="number" placeholder="ИИН/БИН"disabled min="1" max="999999999999"  />
+						<input id = 'turnon1' class='turnon1' type="number" placeholder="Контактный телефон"disabled />
+						<input id = 'turnon2' class='turnon2' type="text" placeholder="Краткое наименование"disabled />
+						<input id = 'turnon3' class='turnon3' type="number" placeholder="Номер регистрации"disabled min="1" max="999999999999" />
+						<input id = 'turnon4' class='turnon4' type="text" placeholder="Страна"disabled />
+						<button class="btn_sign_up" onclick="UserRegister()">Зарегистрироваться</button>
+						<p id='err_fio' class='error' style="margin-top: 10px; margin-bottom: 10px; color: white;"></p>
+					</div>
+						
+					
+				</div>
+			</div>
+		</div>
+	</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="js/index.js"></script>
+	<script src="../dsad/script.js"></script>
+</body>
+</html>
