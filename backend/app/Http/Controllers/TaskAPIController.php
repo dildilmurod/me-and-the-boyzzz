@@ -9,6 +9,7 @@ use App\Repositories\TaskRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\File;
 use Response;
 
 /**
@@ -41,6 +42,8 @@ class TaskAPIController extends AppBaseController
             $request->get('skip'),
             $request->get('limit')
         );
+
+
 
         return $this->sendResponse($tasks->toArray(), 'Tasks retrieved successfully');
     }
@@ -227,9 +230,9 @@ class TaskAPIController extends AppBaseController
 
         $task->delete();
 
-        if ($task->file) {
-            File::delete('files/' . $task->file);
-        }
+//        if ($task->file) {
+//            File::delete('files/' . $task->file);
+//        }
 
         return $this->sendResponse($id, 'Task deleted successfully');
     }
