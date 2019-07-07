@@ -8,6 +8,7 @@ use App\Models\Task;
 use App\Repositories\TaskRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
+use Maatwebsite\Excel\Facades\Excel;
 use Response;
 
 /**
@@ -80,10 +81,25 @@ class TaskAPIController extends AppBaseController
 
     public function store(CreateTaskAPIRequest $request)
     {
-        $input = $request->except(['file', 'filesize', 'student_id']);
+        $input = $request->except(['file', 'filesize', 'student_id', 'file_headers']);
 
         $file = $request->file('file');
         $input['student_id'] = auth('api')->user()->id;
+
+        $csv_data = Excel::load($file->getRealPath(), function($reader) {})->get()->toArray();
+
+        $csv_header_fields = [];
+        if (count($csv_data) > 0 && $file->getClientOriginalExtension()=='csv') {
+//            if ($request->has('header')) {
+                foreach ($csv_data[0] as $key => $value) {
+                    $csv_header_fields[] = $key;
+                }
+
+//            }
+//            $csv = array_slice($csv_data, 0, 2);
+
+        }
+        $input['file_headers'] = $csv_header_fields;
         //required if files from input exists
         if ($file) {
             $input['filesize'] = $file->getSize();

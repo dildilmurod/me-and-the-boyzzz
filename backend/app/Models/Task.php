@@ -32,7 +32,8 @@ class Task extends Model
         'description',
         'purpose',
         'student_id',
-        'status'
+        'status',
+        'file_headers'
     ];
 
     /**
@@ -46,7 +47,8 @@ class Task extends Model
         'file' => 'string',
         'filesize' => 'string',
         'description' => 'string',
-        'purpose' => 'string'
+        'purpose' => 'string',
+        'file_headers' => 'array'
     ];
 
     /**
