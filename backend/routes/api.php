@@ -28,6 +28,7 @@ Route::post('/staff-login', 'StaffAuthController@login');
 
 Route::apiResource('task', 'TaskAPIController');
 Route::post('task/{task}', 'TaskAPIController@update');
+Route::delete('/task/{task}','TaskAPIController@destroy');
 Route::get('my-tasks', 'TaskAPIController@my_tasks');
 Route::get('download-route/{task}', 'TaskAPIController@download_route');
 

@@ -221,6 +221,7 @@ class TaskAPIController extends AppBaseController
      */
     public function destroy($id)
     {
+        return die(123);
         /** @var Task $task */
         $task = $this->taskRepository->find($id);
 
