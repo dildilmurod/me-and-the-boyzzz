@@ -141,7 +141,9 @@ class TaskAPIController extends AppBaseController
             $item->student;
         }
 
-
+        foreach ($task->comment as $c) {
+            $c->student;
+        }
 
 
 
