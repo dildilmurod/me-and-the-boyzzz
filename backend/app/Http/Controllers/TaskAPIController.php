@@ -14,7 +14,6 @@ use Response;
  * Class TaskController
  * @package App\Http\Controllers\API
  */
-
 class TaskAPIController extends AppBaseController
 {
     /** @var  TaskRepository */
@@ -45,12 +44,12 @@ class TaskAPIController extends AppBaseController
         return $this->sendResponse($tasks->toArray(), 'Tasks retrieved successfully');
     }
 
-    public function my_tasks(){
+    public function my_tasks()
+    {
         $tasks = Task::where([
             ['student_id', auth('api')->user()->id],
             ['status', 1]
         ])->orderBy('id', 'desc')->get();
-
 
 
         return $this->sendResponse($tasks->toArray(), 'Tasks retrieved successfully');
@@ -65,14 +64,15 @@ class TaskAPIController extends AppBaseController
      *
      * @return Response
      */
-    public function gen_name($file){
+    public function gen_name($file)
+    {
         //creates unique file name
         $fileName = $file->getClientOriginalName();
         $fileName = pathinfo($fileName, PATHINFO_FILENAME);
         //just takes file extension
         $ext = $file->getClientOriginalExtension();
         //filename to store
-        $fileToStore = md5(uniqid($fileName))  . '.' . $ext;
+        $fileToStore = md5(uniqid($fileName)) . '.' . $ext;
 
         return $fileToStore;
     }
@@ -108,15 +108,17 @@ class TaskAPIController extends AppBaseController
      * @return Response
      */
 
-    public function download_route($id){
+    public function download_route($id)
+    {
         $task = $this->taskRepository->find($id);
 
         $task->student;
         $task->solution;
-        $task->num_of_downloads+=1;
+        $task->comment;
+        $task->num_of_downloads += 1;
         $task->save();
 //        files/08fa8bcf83ba94fba14a7ef8f8282d25.jpg
-        return $this->sendResponse('files/'.$task->file, 'Task file route retrieved successfully');
+        return $this->sendResponse('files/' . $task->file, 'Task file route retrieved successfully');
 
     }
 
@@ -125,12 +127,26 @@ class TaskAPIController extends AppBaseController
         /** @var Task $task */
         $task = $this->taskRepository->find($id);
 
-        $task->student;
-        $task->solution;
-
         if (empty($task)) {
             return $this->sendError('Task not found');
         }
+
+
+        $task->student;
+        $task->solution;
+//        $solution = $task->solution()->get();
+        $task->comment;
+
+        foreach ($task->solution as $item) {
+            $item->student;
+        }
+
+
+
+
+
+
+
 
         return $this->sendResponse($task->toArray(), 'Task retrieved successfully');
     }
@@ -194,7 +210,7 @@ class TaskAPIController extends AppBaseController
         $task->delete();
 
         if ($task->file) {
-            File::delete('files/'.$task->file);
+            File::delete('files/' . $task->file);
         }
 
         return $this->sendResponse($id, 'Task deleted successfully');
